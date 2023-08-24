@@ -94,3 +94,107 @@ select*from tbFornecedor;
 select*from tbUsuarios;
 select*from tbProdutos;
 select*from tbVendas;
+
+-- inner join
+-- ex1
+
+select 
+usu.nome as 'Nome do usuário' ,
+func.nome as 'Nome do funcionário'
+from tbUsuarios as usu 
+inner join tbFuncionarios as func
+on usu.codFunc = func.codFunc;
+-- ex2
+
+select 
+usu.nome as 'Nome do usuário', 
+func.nome as 'Nome do funcionário', 
+func.email as 'E-mail do funcionário'
+from tbUsuarios as usu
+inner join tbFuncionarios as func
+on usu.codFunc = func.codFunc;
+-- ex3
+
+select 
+forn.nome as 'Nome do fornecedor',
+forn.cnpj as 'CNPJ do fornecedor',
+prod.descricao as 'Descrição do produto' 
+from tbProdutos as prod 
+inner join tbFornecedor as forn
+on prod.codForn = forn.codForn;
+-- ex4
+
+select 
+cli.nome as 'Nome do usuário', 
+cli.email as 'Email do usuário', 
+cli.telCel as 'Telefone do usuário', 
+vend.dataVenda as ' Data da venda', 
+vend.valorTotal as 'Valor total da venda', 
+prod.descricao as 'Descrição do produto' 
+from tbVendas as vend
+inner join tbCliente as cli 
+on cli.codCli = vend.codCli
+inner join tbProdutos as prod
+on vend.codProd = prod.codProd
+where codVenda = 1
+-- ex5
+
+select 
+cli.nome as 'Nome do usuário', 
+cli.email as 'Email do usuário', 
+cli.telCel as 'Telefone do usuário', 
+vend.dataVenda as ' Data da venda',
+vend.valorTotal as 'Valor total da venda', 
+prod.descricao as 'Descrição do produto' 
+from tbVendas as vend
+inner join tbCliente as cli 
+on cli.codCli = vend.codCli
+inner join tbProdutos as prod
+on vend.codProd = prod.codProd
+where prod.descricao like '%b%';
+-- ex6
+
+select
+usu.nome as 'Usuário', 
+func.nome as 'Nome do funcionário', 
+vend.dataVenda as 'Data da venda', 
+vend.quantidade 'Quantidade vendida', 
+vend.valorTotal as 'Valor total' 
+from tbUsuarios as usu
+inner join tbFuncionarios as func
+on usu.codFunc = func.codFunc
+inner join tbVendas as vend
+on usu.codUsu = vend.codUsu;
+-- ex7
+
+select cli.nome as 'Nome do cliente', 
+vend.dataVenda as 'Data da venda', 
+prod.descricao as 'Nome do produto', 
+forn.nome as 'Fornecedor' 
+from tbCliente as cli
+inner join tbVendas  as vend
+on cli.codCli = vend.codCli
+inner join tbProdutos = prod
+on vend.codProd = prod.codProd
+inner join tbFornecedor as forn
+on prod.codForn = forn.codForn;
+-- ex8
+
+select 
+func.nome as 'Nome do funcionário', 
+usu.nome as 'Usuário', 
+vend.dataVenda as 'Data da venda', 
+vend.valorTotal as 'Valor total', 
+prod.descricao as 'Nome do produto', 
+prod.dataEntrada as 'Data de entrada', 
+forn.nome as 'Nome do fornecedor', 
+forn.cnpj
+from tbFuncionarios as func
+inner join tbUsuarios as usu
+on func.codFunc = usu.codFunc
+inner join tbVendas as vend
+on vend.codUsu = usu.codUsu
+inner join tbProdutos as prod
+on prod.codProd = vend.codProd
+inner join tbFornecedor as forn
+on forn.codForn = prod.codForn;

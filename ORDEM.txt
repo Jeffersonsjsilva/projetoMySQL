@@ -1,0 +1,13 @@
+tbGenero = é primary Key, não tem foreign key
+tbAutor = é primary key, não tem foreign key
+tbCliente = é primary key, não tem foreign key
+
+tbVenda = é primary Key, tem foreign key (idCliente)
+tbLivro = é primary Key, tem foreign key (idGenero)
+
+
+tbItensDaVenda = não é primary key, tem foreign key (idLivro) e (idVenda)
+tbEscreve = não é primary key, tem 2 foreign key (idLivro e idAutor)
+
+
+
