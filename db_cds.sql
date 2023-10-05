@@ -262,6 +262,21 @@ tit.cod_cat = cat.cod_cat;
 
 select
 titp.num_ped as 'Número do pedido',
+<<<<<<< HEAD
+=======
+cli.nome_cli as 'Nome do cliente',
+tit.nome_cd as 'Titulo'
+from tbClientes as cli
+inner join tbPedidos as ped
+on cli.cod_cli = ped.cod_cli
+inner join tbTitulos_pedidos as titp
+on titp.num_ped = ped.num_ped
+inner join tbTitulos as tit
+on tit.cod_tit = titp.cod_tit
+order by titp.num_ped;
+
+select
+>>>>>>> b7d5ba250a3dd31c199708b4fd0f6539fb1c7716
 cli.nome_cli as 'Nome do cliente',
 tit.nome_cd as 'Titulo'
 from tbClientes as cli
