@@ -35,4 +35,4 @@ primary key(codFunc)
 
 -- buscar funcionarios
 
-select * from tbFuncionarios where nome = "@nome";
+select * from tbFuncionarios where nome = @nome;
