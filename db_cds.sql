@@ -261,11 +261,17 @@ tit.cod_cat = cat.cod_cat;
 -- cliente fez.
 
 select
+titp.num_ped as 'Número do pedido',
 cli.nome_cli as 'Nome do cliente',
-tit.nome_cd as 'CD comprado' from tbClientes as cli
-left join tbTitulos as tit on
-cli.cod_cli = tit.cod_tit;
-
+tit.nome_cd as 'Titulo'
+from tbClientes as cli
+inner join tbPedidos as ped
+on cli.cod_cli = ped.cod_cli
+inner join tbTitulos_pedidos as titp
+on titp.num_ped = ped.num_ped
+inner join tbTitulos as tit
+on tit.cod_tit = titp.cod_tit
+order by titp.num_ped;
 
 -- 5. Selecione o nome do funcionário, número, data e valor dos pedidos que este
 -- funcionário registrou, além do nome do cliente que está fazendo o pedido.
