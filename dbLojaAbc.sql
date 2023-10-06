@@ -19,6 +19,20 @@ estado char(2),
 primary key(codFunc)
 );
 
+create table tbUsuarios(
+codUsu int not null auto_increment,
+usuario varchar(30) not null,
+senha varchar(10) not null,
+codFunc int not null,
+primary key(codUsu),
+foreign key (codFunc) references tbFuncionarios(codFunc)
+);
+
+insert into tbUsuarios(usuario,senha,codFunc)values('admin','admin',1);
+
+
+	select * from tbUsuarios where usuario = 'admin' and senha = 'admin';
+
 -- insert into tbFuncionarios(nome,email,cpf,dNasci,endereco,cep,numero,bairro,cidade,estado) values();
 
 
@@ -26,13 +40,16 @@ primary key(codFunc)
 -- select * from tbFuncionarios where codFunc = 1;
 
 -- Busca por nome
-
 -- select * from tbFuncionarios where nome like '%a%';
 
 -- inserir campo de código não existente
-
 -- select codFunc+1 from tbFuncionarios order by codFunc desc;
 
 -- buscar funcionarios
+-- select * from tbFuncionarios where nome = @nome;
 
-select * from tbFuncionarios where nome = @nome;
+-- alterar funcionarios
+-- update tbFuncionarios set nome = @nome, email = @email, cpf = @cpf, dNasci = @dNasci, endereco = @endereco, cep = @cep, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado where codFunc = @codFunc;
+
+-- excluindo funcionarios
+-- delete from tbFuncionarios where codFunc = @codFunc; 
