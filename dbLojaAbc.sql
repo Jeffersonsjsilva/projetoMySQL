@@ -28,16 +28,18 @@ primary key(codUsu),
 foreign key (codFunc) references tbFuncionarios(codFunc)
 );
 
-insert into tbUsuarios(usuario,senha,codFunc)values('admin','admin',1);
+-- insert into tbUsuarios(usuario,senha,codFunc)values('admin','admin',1);
 
-insert into tbUsuarios(usuario,senha,codFunc)values(@usuario,@senha,@codFunc);
+-- insert into tbUsuarios(usuario,senha,codFunc)values(@usuario,@senha,@codFunc);
 
-select * from tbUsuarios where usuario = 'admin' and senha = 'admin';
+-- select * from tbUsuarios where usuario = 'admin' and senha = 'admin';
 
-select func.nome from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc != func.codFunc;
+-- select func.nome from tbUsuarios as usu inner join tbFuncionarios as func on usu.codFunc != func.codFunc;
 
--- insert into tbFuncionarios(nome,email,cpf,dNasci,endereco,cep,numero,bairro,cidade,estado) values();
+-- -insert into tbFuncionarios(nome,email,cpf,dNasci,endereco,cep,numero,bairro,cidade,estado) values();
 
+-- alterar usuarios
+-- update into tbUsuarios set usuario = @usuario, senha = @senha where codusu = @codusu;
 
 -- Busca por código
 -- select * from tbFuncionarios where codFunc = 1;
@@ -58,4 +60,4 @@ select func.nome from tbUsuarios as usu inner join tbFuncionarios as func on usu
 -- delete from tbFuncionarios where codFunc = @codFunc; 
 
 
-select usu.usuario, usu.senha, func.codFunc from tbFuncionarios as func inner join tbUsuarios as usu on func.codFunc = usu.codFunc where func.nome = 'marquito';
+-- select usu.usuario, usu.senha, func.codFunc from tbFuncionarios as func inner join tbUsuarios as usu on func.codFunc = usu.codFunc where func.nome = 'marquito';
