@@ -16,4 +16,7 @@ primary key (codAni)
 
 update into tbAnimais set nome = @nome, tipo = @tipo, idade = @idade where codAni = @codAni;
 
-	update into tbAnimais set nome = Asto, tipo = Rinoceront, idade = 3 where codAni = 2;
+UPDATE tbanimais set nome = '@nome', tipo = '@tipo', idade = '@idade' where codAni = '@codAni';
+
+select codAni+1 from tbAnimais order by codAni desc;
+
