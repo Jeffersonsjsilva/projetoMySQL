@@ -28,6 +28,22 @@ primary key(codUsu),
 foreign key (codFunc) references tbFuncionarios(codFunc)
 );
 
+create table tbConta(
+codConta int not null auto_increment,
+avaliacao varchar(100),
+valorGorjeta decimal(9,2),
+ValorConta decimal(9,2),
+valorTotal decimal(9,2),
+codFunc int not null,
+primary key (codConta),
+foreign key (codFunc) references tbFuncionarios(codfun)
+);
+
+
+-- insert into tbConta(avaliacao, valorGorjeta, valorConta, valorTotal, codFunc) values (@avaliacao, @valorGorjeta, @ValorConta, @valorTotal, @codFunc);
+
+-- select codFunc from tbFuncionarios where nome like '%+nome+%';
+
 -- insert into tbUsuarios(usuario,senha,codFunc)values('admin','admin',1);
 
 -- insert into tbUsuarios(usuario,senha,codFunc)values(@usuario,@senha,@codFunc);
