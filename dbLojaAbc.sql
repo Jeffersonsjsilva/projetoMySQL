@@ -34,10 +34,14 @@ avaliacao varchar(100),
 valorGorjeta decimal(9,2),
 ValorConta decimal(9,2),
 valorTotal decimal(9,2),
+data date,
 codFunc int not null,
 primary key (codConta),
 foreign key (codFunc) references tbFuncionarios(codfun)
 );
+
+select valorGorjeta from tbconta where codFunc = @codFunc  and data = @data;
+
 
 
 -- insert into tbConta(avaliacao, valorGorjeta, valorConta, valorTotal, codFunc) values (@avaliacao, @valorGorjeta, @ValorConta, @valorTotal, @codFunc);
