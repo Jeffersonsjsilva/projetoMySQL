@@ -40,8 +40,9 @@ primary key (codConta),
 foreign key (codFunc) references tbFuncionarios(codfun)
 );
 
-select valorGorjeta from tbconta where codFunc = @codFunc  and data = @data;
+-- select valorGorjeta from tbconta where codFunc = @codFunc  and data = @data;
 
+-- select valorGorjeta, avaliacao, data from tbconta where codFunc = 1 and DATE(data) between '23/11/08' and '23/11/09';
 
 
 -- insert into tbConta(avaliacao, valorGorjeta, valorConta, valorTotal, codFunc) values (@avaliacao, @valorGorjeta, @ValorConta, @valorTotal, @codFunc);
